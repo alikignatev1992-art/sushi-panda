@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-heading);
+    --font-sans: var(--font-sans);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ============================================================
+   Суши Панда — маппинг токенов бренда на переменные shadcn.
+   Источник истины: 02-design-system/sushi-panda/tokens.css
+   (производная от DESIGN.md v2 «Тихая панда»). Цвета не менять
+   здесь — менять токены бренда и пересобирать этот блок.
+   Одна тема — белая (Named Rule White-Stage, тёмных фонов нет).
+   Текст на оранжевых плашках — белый (White-On-Orange, решение
+   пользователя, AA-исключение задокументировано в DESIGN.md).
+   ============================================================ */
+:root {
+    --background: #FFFFFF;               /* --bg (строго белый — бриф) */
+    --foreground: #1B1B1B;               /* --ink */
+    --card: #FFFFFF;
+    --card-foreground: #1B1B1B;
+    --popover: #FFFFFF;
+    --popover-foreground: #1B1B1B;
+    --primary: #F1801F;                  /* --orange: CTA-плашки */
+    --primary-foreground: #FFFFFF;       /* White-On-Orange */
+    --secondary: #F5F5F6;                /* --gray: тихие плашки */
+    --secondary-foreground: #1B1B1B;
+    --muted: #F5F5F6;
+    --muted-foreground: #5C5C5C;         /* --muted 6.7:1 */
+    --accent: #F5F5F6;
+    --accent-foreground: #1B1B1B;
+    --destructive: #E86A10;              /* --orange-deep (красный запрещён брифом) */
+    --border: #E4E4E6;                   /* --line */
+    --input: #E4E4E6;
+    --ring: #E86A10;                     /* Focus-Tangerine */
+    --chart-1: #F1801F;
+    --chart-2: #E86A10;
+    --chart-3: #BF5606;
+    --chart-4: #F26E4F;                  /* --salmon: только графика/декор */
+    --chart-5: #8DC63F;                  /* --avocado: только графика/декор */
+    --radius: 0.75rem;                   /* --r-s: 12px (Panda-Round) */
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #1B1B1B;
+    --sidebar-primary: #F1801F;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F5F5F6;
+    --sidebar-accent-foreground: #1B1B1B;
+    --sidebar-border: #E4E4E6;
+    --sidebar-ring: #E86A10;
+}
+
+/* .dark оставлен технически (shadcn), но брендом не используется:
+   White-Stage запрещает тёмные фоны — тема принудительно светлая в layout */
+.dark {
+    --background: #FFFFFF;
+    --foreground: #1B1B1B;
+    --card: #FFFFFF;
+    --card-foreground: #1B1B1B;
+    --popover: #FFFFFF;
+    --popover-foreground: #1B1B1B;
+    --primary: #F1801F;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F5F5F6;
+    --secondary-foreground: #1B1B1B;
+    --muted: #F5F5F6;
+    --muted-foreground: #5C5C5C;
+    --accent: #F5F5F6;
+    --accent-foreground: #1B1B1B;
+    --destructive: #E86A10;
+    --border: #E4E4E6;
+    --input: #E4E4E6;
+    --ring: #E86A10;
+    --chart-1: #F1801F;
+    --chart-2: #E86A10;
+    --chart-3: #BF5606;
+    --chart-4: #F26E4F;
+    --chart-5: #8DC63F;
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #1B1B1B;
+    --sidebar-primary: #F1801F;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F5F5F6;
+    --sidebar-accent-foreground: #1B1B1B;
+    --sidebar-border: #E4E4E6;
+    --sidebar-ring: #E86A10;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+  /* Quiet-Type: заголовки не жирные — вес 500, лёгкий минус-трекинг */
+  h1, h2, h3 {
+    @apply font-heading font-medium tracking-tight;
+    }
+}
